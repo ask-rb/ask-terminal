@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "optparse"
+require "ask-terminal"
+
+options = {
+  host: "stdio",
+  socket: nil,
+  workspace: Dir.pwd,
+  model: nil,
+  approval: "on_request"
+}
+
+parser = OptionParser.new do |o|
+  o.banner = "Usage: ask-terminal [options]"
+  o.on("--host MODE", "stdio (spawn the host) or socket (attach) [stdio]") { |v| options[:host] = v }
+  o.on("--socket PATH", "Attach to a running host at PATH (implies --host socket)") { |v| options[:socket] = v }
+  o.on("-w", "--workspace DIR", "Workspace directory [current dir]") { |v| options[:workspace] = v }
+  o.on("--model MODEL", "Model identifier") { |v| options[:model] = v }
+  o.on("--approval MODE", "Approval mode: on_request | off | auto [on_request]") { |v| options[:approval] = v }
+  o.on("-h", "--help", "Show help") { puts o; exit }
+end
+parser.parse!(ARGV)
+
+client =
+  if options[:socket] || options[:host] == "socket"
+    socket_path = options[:socket] || ENV["ASK_APP_SERVER_SOCKET"]
+    abort "a socket path is required (--socket PATH or ASK_APP_SERVER_SOCKET)" unless socket_path
+    Ask::Terminal::Host.connect(socket_path)
+  else
+    Ask::Terminal::Host.spawn.client
+  end
+
+repl = Ask::Terminal::Repl.new(
+  client: client,
+  workspace: options[:workspace],
+  model: options[:model],
+  approval: options[:approval]
+)
+begin
+  repl.run
+ensure
+  client.close
+end
