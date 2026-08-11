@@ -26,17 +26,18 @@ by id.
 
 ## Usage
 
-Two ways to reach a host:
+Two ways to reach a host (the command is `ask`; `ask-terminal` is the long
+alias — both are installed by the gem):
 
 ```bash
 # Spawn a host over stdio (one host process owned by this terminal)
-ask-terminal
+ask
 
 # Attach to an already-running host over its unix socket (multi-client)
-ask-terminal --socket ~/.ask-app-server/app-server.sock
+ask --socket ~/.ask-app-server/app-server.sock
 
 # Options
-ask-terminal --workspace ~/code/myapp --model deepseek-v4-flash --approval on_request
+ask --workspace ~/code/myapp --model deepseek-v4-flash --approval on_request
 ```
 
 | Flag | Default | Description |

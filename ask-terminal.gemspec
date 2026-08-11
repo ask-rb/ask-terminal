@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir["lib/**/*", "exe/*", "LICENSE", "README.md", "CHANGELOG.md"]
   spec.bindir = "exe"
-  spec.executables = ["ask-terminal"]
+  spec.executables = ["ask", "ask-terminal"]
   spec.require_paths = ["lib"]
 
   spec.add_dependency "ask-session-protocol", ">= 0.1"

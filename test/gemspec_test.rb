@@ -18,7 +18,7 @@ class GemspecTest < Minitest::Test
   end
 
   def test_version_is_defined
-    assert_equal "0.1.0", Ask::Terminal::VERSION
+    assert_equal "0.1.1", Ask::Terminal::VERSION
   end
 
   def test_depends_on_session_protocol
@@ -26,9 +26,17 @@ class GemspecTest < Minitest::Test
     assert spec.dependencies.any? { |d| d.name == "ask-session-protocol" }
   end
 
-  def test_executable_exists_and_is_executable
-    path = File.expand_path("../exe/ask-terminal", __dir__)
-    assert File.exist?(path), "exe/ask-terminal should exist"
-    assert File.executable?(path), "exe/ask-terminal should be executable"
+  def test_ships_both_executables
+    spec = Gem::Specification.load("ask-terminal.gemspec")
+    assert_includes spec.executables, "ask", "the short command is primary"
+    assert_includes spec.executables, "ask-terminal", "the long name remains an alias"
+  end
+
+  def test_executables_exist_and_are_executable
+    %w[ask ask-terminal].each do |name|
+      path = File.expand_path("../exe/#{name}", __dir__)
+      assert File.exist?(path), "exe/#{name} should exist"
+      assert File.executable?(path), "exe/#{name} should be executable"
+    end
   end
 end

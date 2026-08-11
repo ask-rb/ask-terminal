@@ -52,7 +52,7 @@ module Ask
       private
 
       def banner
-        @output.puts "#{Renderer::DIM}ask-terminal #{Ask::Terminal::VERSION} · " \
+        @output.puts "#{Renderer::DIM}#{Ask::Terminal::CLI::COMMAND_NAME} #{Ask::Terminal::VERSION} · " \
                      "protocol #{Ask::SessionProtocol::PROTOCOL_VERSION} · " \
                      "host #{@server_info["name"]} #{@server_info["version"]}#{Renderer::RESET}"
         @output.puts "#{Renderer::DIM}workspace: #{@workspace} · session: #{@session_id}#{Renderer::RESET}"

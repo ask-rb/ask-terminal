@@ -5,6 +5,15 @@ the keep-a-changelog format.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-08-11
+
+### Changed
+
+- **The command is now `ask`** — the terminal client's primary executable
+  is the short brand name; `ask-terminal` remains installed as a long
+  alias. Both behave identically. CLI logic moved into
+  `Ask::Terminal::CLI`.
+
 ## [0.1.0] - 2026-08-11
 
 ### Added
