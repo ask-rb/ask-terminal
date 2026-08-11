@@ -66,8 +66,12 @@ module Ask
         entry = { done: false, result: nil, error: nil }
         @mutex.synchronize { @pending[id] = entry }
 
-        @output.puts(JSON.generate({ id: id, method: method, params: params }))
-        @output.flush
+        begin
+          @output.puts(JSON.generate({ id: id, method: method, params: params }))
+          @output.flush
+        rescue Errno::EPIPE, IOError
+          raise ConnectionClosed, "host closed the connection"
+        end
 
         deadline = timeout && (Time.now + timeout)
         @mutex.synchronize do
