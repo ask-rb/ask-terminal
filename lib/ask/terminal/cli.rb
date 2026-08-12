@@ -48,7 +48,12 @@ module Ask
             abort "a socket path is required (--socket PATH or ASK_APP_SERVER_SOCKET)" unless socket_path
             Host.connect(socket_path)
           else
-            Host.spawn.client
+            spawned = Host.spawn
+            if spawned.socket_path
+              puts "host socket: #{spawned.socket_path}"
+              puts "attach with: ask --socket #{spawned.socket_path}"
+            end
+            spawned.client
           end
 
         repl = Repl.new(

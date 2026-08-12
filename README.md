@@ -30,15 +30,21 @@ Two ways to reach a host (the command is `ask`; `ask-terminal` is the long
 alias — both are installed by the gem):
 
 ```bash
-# Spawn a host over stdio (one host process owned by this terminal)
+# Spawn a host over stdio — it also exposes a unix socket for
+# multi-client attach, and prints the path on startup:
 ask
+#   host socket: ~/.ask-app-server/sockets/4f3a9c2b1d0e8f7a.sock
 
 # Attach to an already-running host over its unix socket (multi-client)
-ask --socket ~/.ask-app-server/app-server.sock
+ask --socket ~/.ask-app-server/sockets/4f3a9c2b1d0e8f7a.sock
 
 # Options
 ask --workspace ~/code/myapp --model deepseek-v4-flash --approval on_request
 ```
+
+Every spawned host is attachable: the web console, a bot, or a second
+terminal can connect to the same live sessions (`ASK_APP_SERVER_SOCKET`
+pins the path; `Host.spawn(socket: false)` disables it).
 
 | Flag | Default | Description |
 |---|---|---|

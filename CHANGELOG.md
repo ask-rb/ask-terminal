@@ -5,6 +5,17 @@ the keep-a-changelog format.
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-08-11
+
+### Added
+
+- **Spawned hosts are multi-client attachable by default** — `ask` starts
+  the host with a unix socket (unique per spawn under
+  `~/.ask-app-server/sockets/`, or `ASK_APP_SERVER_SOCKET` when set) and
+  prints the path on startup, so the web console, bots, or a second
+  terminal can attach to the same live sessions. `Host.spawn(socket:)`
+  controls it: `true` (default), a custom path, or `false` to disable.
+
 ## [0.1.1] - 2026-08-11
 
 ### Changed
