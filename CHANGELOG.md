@@ -5,6 +5,15 @@ the keep-a-changelog format.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-08-12
+
+### Changed
+
+- **The protocol client moved to `ask-session-client`** — `Client` and
+  `Host` now live in the shared gem; ask-terminal keeps thin aliases
+  (`Ask::Terminal::Client` = `Ask::SessionClient::Client`), so existing
+  references keep working. The board app, bots, and CI use the same
+  client.
 ## [0.1.2] - 2026-08-11
 
 ### Added

@@ -10,6 +10,12 @@ PATH
       ask-tools-shell (>= 0.1)
 
 PATH
+  remote: ../ask-session-client
+  specs:
+    ask-session-client (0.1.0)
+      ask-session-protocol (>= 0.1)
+
+PATH
   remote: ../ask-session-protocol
   specs:
     ask-session-protocol (0.1.0)
@@ -18,7 +24,8 @@ PATH
 PATH
   remote: .
   specs:
-    ask-terminal (0.1.2)
+    ask-terminal (0.2.0)
+      ask-session-client (>= 0.1)
       ask-session-protocol (>= 0.1)
 
 GEM
@@ -120,6 +127,7 @@ PLATFORMS
 
 DEPENDENCIES
   ask-app-server!
+  ask-session-client!
   ask-session-protocol!
   ask-terminal!
   minitest (~> 5.25)
@@ -137,10 +145,11 @@ CHECKSUMS
   ask-llm-providers (0.12.0) sha256=44967e93a8947b628ae66c5731214cafe8ff3775b5eede4f1545729e62fcf3a9
   ask-sandbox-providers (0.1.4) sha256=1d48aeeda0a96558b5b8efd7a7e7035c3437c5dace9f849b33b71d3452124ef8
   ask-schema (0.1.1) sha256=1be1c107c2f7cdacde9cf8d4dfc004e586f652c2b979e1829fab748f66ca98bd
+  ask-session-client (0.1.0)
   ask-session-protocol (0.1.0)
   ask-skills (0.5.1) sha256=baaaf6a355ce24ec43c272580bb7ef666d980c06def8d1ac04650e1f10f69c71
   ask-state-providers (0.4.0) sha256=7ac87c34862017398d2187d02b0d9b096f6f116f7fc861467e6922b07107695b
-  ask-terminal (0.1.2)
+  ask-terminal (0.2.0)
   ask-tools (0.6.0) sha256=26a4c25a2367f49d7541b29ffc65d4efaaacec0133ea502c5aa3092f86d0966e
   ask-tools-shell (0.5.1) sha256=bffc8bad1c4b2cb1abb9976e3c451e51f87bdd3c71e79a69ff3ae5fe95e90635
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
