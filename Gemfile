@@ -17,6 +17,5 @@ end
 monorepo = Dir.exist?(File.expand_path("../ask-session-protocol", __dir__))
 if monorepo
   gem "ask-session-protocol", path: "../ask-session-protocol"
-  gem "ask-session-client", path: "../ask-session-client"
   gem "ask-app-server", path: "../ask-app-server"
 end
