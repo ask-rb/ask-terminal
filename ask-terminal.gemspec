@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.executables = ["ask", "ask-terminal"]
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "ask-session-protocol", ">= 0.1"
+  spec.add_dependency "ask-session-protocol", ">= 0.2.0"
 
   spec.add_development_dependency "minitest", "~> 5.25"
   spec.add_development_dependency "mocha", "~> 3.1"
