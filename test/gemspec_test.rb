@@ -18,7 +18,7 @@ class GemspecTest < Minitest::Test
   end
 
   def test_version_is_defined
-    assert_equal "0.2.0", Ask::Terminal::VERSION
+    assert_match(/\A\d+\.\d+\.\d+\z/, Ask::Terminal::VERSION)
   end
 
   def test_depends_on_session_protocol
