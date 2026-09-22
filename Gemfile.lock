@@ -1,25 +1,26 @@
 PATH
   remote: ../ask-app-server
   specs:
-    ask-app-server (0.4.9)
-      ask-agent (>= 0.40.1)
-      ask-core (>= 0.11.3)
-      ask-session-protocol (>= 0.2.0)
+    ask-app-server (0.4.26)
+      ask-agent (>= 0.40.23)
+      ask-core (>= 0.12.1)
+      ask-session (>= 0.1.1)
+      ask-session-protocol (>= 0.2.1)
       ask-state-providers (>= 0.4.6)
       ask-tools (>= 0.6.2)
-      ask-tools-shell (>= 0.1)
+      ask-tools-shell (>= 0.6.1)
 
 PATH
   remote: ../ask-session-protocol
   specs:
-    ask-session-protocol (0.2.0)
+    ask-session-protocol (0.2.1)
       json
 
 PATH
   remote: .
   specs:
-    ask-terminal (0.2.0)
-      ask-session-protocol (>= 0.2.0)
+    ask-terminal (0.2.2)
+      ask-session-protocol (>= 0.2.1)
 
 GEM
   remote: https://rubygems.org/
@@ -37,29 +38,34 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
-    ask-agent (0.40.7)
-      ask-core (>= 0.11.3)
+    ask-agent (0.40.24)
+      ask-core (>= 0.12.1)
       ask-instrumentation (>= 0.1)
-      ask-llm-providers (>= 0.1)
+      ask-llm-providers (>= 0.13.7)
+      ask-runtime (>= 0.1.0)
+      ask-session (>= 0.1.0)
       ask-skills (>= 0.1)
       ask-state-providers (>= 0.4.6)
       ask-tools (>= 0.6.2)
       rufus-scheduler (~> 3.9)
-    ask-auth (0.3.1)
+    ask-auth (0.3.5)
       base64 (~> 0.2)
-    ask-core (0.11.3)
+    ask-core (0.12.1)
       base64 (~> 0.2)
     ask-instrumentation (0.2.1)
       activesupport (>= 7.0)
-    ask-llm-providers (0.12.0)
-      ask-auth (>= 0.1)
-      ask-core (>= 0.7.0)
+    ask-llm-providers (0.14.2)
+      ask-auth (>= 0.3.2)
+      ask-core (>= 0.12.1)
       base64 (~> 0.2)
       faraday (>= 2.0)
       faraday-multipart (>= 1.0)
       json
+    ask-runtime (0.1.0)
+      ask-core (>= 0.12.0)
     ask-sandbox-providers (0.1.4)
     ask-schema (0.1.2)
+    ask-session (0.1.1)
     ask-skills (0.5.1)
       ask-tools (>= 0.1)
     ask-state-providers (0.4.6)
@@ -69,9 +75,9 @@ GEM
     ask-tools (0.6.3)
       ask-core (>= 0.11.3)
       ask-schema (>= 0.1.2)
-    ask-tools-shell (0.5.1)
+    ask-tools-shell (0.6.1)
       ask-sandbox-providers (>= 0.1)
-      ask-tools (>= 0.1)
+      ask-tools (>= 0.6.2)
     base64 (0.3.0)
     bigdecimal (4.1.2)
     concurrent-ruby (1.3.8)
@@ -93,7 +99,7 @@ GEM
       raabro (~> 1.4)
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
-    json (2.21.2)
+    json (3.0.2)
     logger (1.7.0)
     minitest (5.27.0)
     mocha (3.1.0)
@@ -134,20 +140,22 @@ DEPENDENCIES
 
 CHECKSUMS
   activesupport (8.1.3.1) sha256=85458765f25ea48b9019c46b6bb3fa5683197bf4280d9f06710a6e8d7a831376
-  ask-agent (0.40.7) sha256=7c4a4c8d0a4576b458593cd9919f68b3aea36ea6212c4c7cf50edaa7570070d6
-  ask-app-server (0.4.9)
-  ask-auth (0.3.1) sha256=9389473858bbc900361c3c6554113d99db1f96aef42ae41579f084ee69b1ee95
-  ask-core (0.11.3) sha256=f4eb30a82bda2688f74fff072669cfbb21d4b70242cf5ca80470836e31258b60
+  ask-agent (0.40.24) sha256=e7878a7a88adf55cca27186b0b29e9b754d892eead09d0cbbfa2114b75d2d4d4
+  ask-app-server (0.4.26)
+  ask-auth (0.3.5) sha256=0a13bc19b1e685e8a19a2e7df6bfaecf700e144edb679bfc31397d3139b1bbb7
+  ask-core (0.12.1) sha256=fb03a4ecdc140e629bd8ac7eeb90ece5d78e502a513f68329018c4909d085c50
   ask-instrumentation (0.2.1) sha256=0a8d2e2d6653d1b6f551eda0fbabd068c0a9076939f36fa605cd0a13112cdba1
-  ask-llm-providers (0.12.0) sha256=44967e93a8947b628ae66c5731214cafe8ff3775b5eede4f1545729e62fcf3a9
+  ask-llm-providers (0.14.2) sha256=bbc97b56650be5e1242c830d226434ca386807f49f4a0d6ce4ee4167d27aa86c
+  ask-runtime (0.1.0) sha256=309d54c50995efde796512297e5d97438098a682ad860ff12b6ef717d7dedb46
   ask-sandbox-providers (0.1.4) sha256=1d48aeeda0a96558b5b8efd7a7e7035c3437c5dace9f849b33b71d3452124ef8
   ask-schema (0.1.2) sha256=bbaacafcd41633b7982bdf7c5d4a4492c0e0779194b9d01bfa9788a37200b8d5
-  ask-session-protocol (0.2.0)
+  ask-session (0.1.1) sha256=7433b0c521af84c16c4a4d309767b4c1d429ec306751740bac40d1077719b1a6
+  ask-session-protocol (0.2.1)
   ask-skills (0.5.1) sha256=baaaf6a355ce24ec43c272580bb7ef666d980c06def8d1ac04650e1f10f69c71
   ask-state-providers (0.4.6) sha256=8210949367e861193efa2c42ce748e18bb87945012179c92d29e92749876d01f
-  ask-terminal (0.2.0)
+  ask-terminal (0.2.2)
   ask-tools (0.6.3) sha256=19004676b3d9bf1aae7000ab3fd58743ca78539abd21aa8e6f6ac948ae1eba1e
-  ask-tools-shell (0.5.1) sha256=bffc8bad1c4b2cb1abb9976e3c451e51f87bdd3c71e79a69ff3ae5fe95e90635
+  ask-tools-shell (0.6.1) sha256=acdea8dcd5320817db38fd9688aa6cedcddb4b4c624eaca9ebfa9f6995fbe521
   base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
   bigdecimal (4.1.2) sha256=53d217666027eab4280346fba98e7d5b66baaae1b9c3c1c0ffe89d48188a3fbd
   bundler (4.0.18) sha256=02d9a17429de1847b4e0c9f27a9ee4b20c0a74c0a641b4e77195d6019e3618ac
@@ -161,7 +169,7 @@ CHECKSUMS
   faraday-net_http (3.4.4) sha256=0e78af151747ed1b00f33e25973b4bc220d7f16c00c39676817c8b12331eb588
   fugit (1.13.0) sha256=a4f093fce740da52f216740a5041e2a594ea763cdb89e8b2754ca4399634ab18
   i18n (1.15.2) sha256=00f9eb62412fe593b2a65a97daa75300d37abb8f7202ec748e94b6d46a9dd1b5
-  json (2.21.2) sha256=1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a
+  json (3.0.2) sha256=8e6d7e7b11384c21230430cef90b71f14849a34a1f4452796670f7c981bd19df
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
   minitest (5.27.0) sha256=2d3b17f8a36fe7801c1adcffdbc38233b938eb0b4966e97a6739055a45fa77d5
   mocha (3.1.0) sha256=75f42d69ebfb1f10b32489dff8f8431d37a418120ecdfc07afe3bc183d4e1d56
